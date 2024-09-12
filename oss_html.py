@@ -20,7 +20,7 @@ def clone_or_pull_repo(repo_url, local_path):
 
 def upload_file_to_oss(file_path, destination_path):
     try:
-        oss_url = f'oss://{OSS_BUCKET_NAME}/{destination_path}'
+        oss_url = 'oss://%s/%s' % (OSS_BUCKET_NAME, destination_path)
         subprocess.run([
             'ossutil', 'cp', file_path,
             oss_url,
@@ -28,9 +28,9 @@ def upload_file_to_oss(file_path, destination_path):
             '--access-key-secret', OSS_SECRET_ACCESS_KEY,
             '--endpoint', OSS_ENDPOINT
         ], check=True)
-        print(f"File {file_path} uploaded to OSS successfully.")
+        print("File %s uploaded to OSS successfully." % file_path)
     except subprocess.CalledProcessError as e:
-        print(f"Failed to upload file {file_path}: {e}")
+        print("Failed to upload file %s: %s" % (file_path, e))
 
 if __name__ == '__main__':
     if not all([OSS_ACCESS_KEY_ID, OSS_SECRET_ACCESS_KEY, OSS_ENDPOINT, OSS_BUCKET_NAME, GITHUB_REPO_URL]):
