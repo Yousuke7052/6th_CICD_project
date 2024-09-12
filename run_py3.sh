@@ -1,3 +1,3 @@
 git pull
 
-python3 oss_html.py
+python3 oss_html2.py
