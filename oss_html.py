@@ -8,8 +8,8 @@ OSS_ENDPOINT = os.getenv('OSS_ENDPOINT')
 OSS_BUCKET_NAME = os.getenv('OSS_BUCKET_NAME')
 
 # 文件信息
-LOCAL_FILE_PATH = 'index.html'
-DESTINATION_PATH = 'index.html'
+LOCAL_FILE_PATH = 'project_2'
+DESTINATION_PATH = 'project_2'
 
 # 上传文件到OSS
 try:
